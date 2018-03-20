@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>学科管理</title>
+
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/request.js"></script>
+
+</head>
+<body>
+<div class="box-inside">
+    <div class="box-header box-white">
+        <h4>学科管理</h4>
+    </div>
+    <div class="box-content clearfix">
+        <ul>
+            <li class="col-mdd-4">
+                <span class="col-mdd-4 span-lineHeight40 text-right">主类别：</span>
+                <span class="col-mdd-8">
+                    <select id="firstScience" class="mySelect" />
+                </span>
+            </li>
+            <li class="col-mdd-4">
+                <span class="col-mdd-4 span-lineHeight40 text-right">次类别：</span>
+                <span class="col-mdd-8">
+                    <select id="secondScience" class="mySelect" />
+                </span>
+            </li>
+            <li class="col-mdd-4">
+                <span class="col-mdd-4 span-lineHeight40 text-right">详细类别：</span>
+                <span class="col-mdd-8">
+                    <select id="thirdScience" class="mySelect" />
+                </span>
+            </li>
+            <div class="clearfix"></div>
+            <li class="col-mdd-12">
+                <span class="col-mdd-11 text-center">
+                    <button class="btnn btnn-confirm"  id="queryButton">&nbsp;&nbsp;查询&nbsp;&nbsp;</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btnn btnn-confirm" id="deleteButton">&nbsp;&nbsp;删除&nbsp;&nbsp;</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btnn btnn-confirm" id="updateButton">&nbsp;&nbsp;修改&nbsp;&nbsp;</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btnn btnn-confirm" id="addButton">&nbsp;&nbsp;新增&nbsp;&nbsp;</button>
+                </span>
+                <span class="col-mdd-1 text-center"></span>
+            </li>
+        </ul>
+    </div>
+    <div class="box-inside">
+        <div class="box-header box-white">
+            <h4>学科列表</h4>
+        </div>
+        <div class="box-content">
+            <table class="table table-bordered" id="scienceTable" data-url="/science/getScience.do">
+            <thead>
+            <tr>
+                <th data-type="CheckBox"></th>
+                <th data-field="Science_id">编号</th>
+                <th data-field="Science_detail">名称</th>
+                <th data-field="Ext2">类别</th>
+                <th data-field="Ext1">说明</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="scienceManager.js"></script>
+</body>
+</html>

@@ -1,0 +1,570 @@
+/*模块头部白色背景*/
+
+ul {
+	list-style: none;
+}
+
+.mySelect {
+	width: 180px;
+	height: 32px;
+}
+
+.box-white {
+	height: auto;
+	background: #fff;
+	border-bottom: 1px solid #b1d2f1;
+	margin: auto;
+}
+
+.box-white > h4 {
+	color: #737373;
+}
+
+.box-white > h4 > span {
+	font-weight: normal;
+}
+
+.box-inside {
+	width: 100%;
+	height: 100%;
+	margin-bottom: 10px;
+	background: white;
+}
+
+.box-content {
+	height: auto;
+	color: #737373;
+	/*padding: 8px 20px 20px 20px;*/
+	padding: 8px 20px 20px;
+}
+
+.box-gray {
+	background: #82C5D6;
+}
+
+.box-ul-content {
+	height: 200px;
+	color: #737373;
+	padding: 10px;
+	margin-bottom:20px;
+	overflow-y: hidden;
+}
+
+.box-ui-content {
+	height: 300px;
+	color: #737373;
+	padding: 10px;
+	overflow-y: hidden;
+}
+
+.box-list-content {
+	height: 240px;
+	color: #737373;
+	padding: 10px;
+	margin-bottom: 10px;
+	overflow-y: auto;
+}
+
+.box-process{
+	position: absolute;
+	top:8px;
+	left:200px;
+	z-index:0;
+}
+
+.span-lineHeight30 {
+	line-height: 30px;
+}
+
+.span-lineHeight35 {
+	line-height: 35px;
+}
+
+.span-lineHeight40 {
+	line-height: 40px;
+}
+.span-lineHeight80 {
+	line-height: 80px;
+}
+
+/*清除浮动*/
+
+.clearfix {
+	*+height: 1%;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+/*-----------------栅格----------------------*/
+
+.col-mdd-1,
+.col-mdd-2,
+.col-mdd-3,
+.col-mdd-4,
+.col-mdd-5,
+.col-mdd-5ths,
+.col-mdd-6,
+.col-mdd-7,
+.col-mdd-8,
+.col-mdd-9,
+.col-mdd-10,
+.col-mdd-11,
+.col-mdd-12 {
+	padding-right: 5px;
+	padding-left: 5px;
+	float: left;
+	position: relative;
+}
+
+.col-mdd-12 {
+	width: 100%
+}
+
+.col-mdd-11 {
+	width: 91.66666667%
+}
+
+.col-mdd-10 {
+	width: 83.33333333%
+}
+
+.col-mdd-9 {
+	width: 75%
+}
+
+.col-mdd-8 {
+	width: 66.66666667%
+}
+
+.col-mdd-7 {
+	width: 58.33333333%
+}
+
+.col-mdd-6 {
+	width: 50%
+}
+
+.col-mdd-5ths {
+	width: 20%;
+}
+
+.col-mdd-5 {
+	width: 41.66666667%
+}
+
+.col-mdd-4 {
+	width: 33.33333333%
+}
+
+.col-mdd-3 {
+	width: 25%
+}
+
+.col-mdd-2 {
+	width: 16.66666667%
+}
+
+.col-mdd-1 {
+	width: 8.33333333%
+}
+
+/*
+	名称：box-header
+	意义：模块头部样式
+	调用：各个模块中均有调用
+*/
+
+.box-header {
+	width: 100%;
+	position: relative;
+}
+
+.box-header > h4 {
+	padding: 7px 20px 8px 20px;
+	font-size: 14px;
+	margin: 0;
+	font-weight: bold;
+	border-bottom: 1px #B1D2F1 solid;
+	background: #fff;
+}
+
+.box-header .form-control {
+	height: 24px;
+	font-size: 12px;
+	color: #737373;
+	margin-top: -5px;
+	line-height: 0.5em\0;
+	border-radius: 6px;
+	border: #e3e3e3 1px solid;
+	padding: 10px;
+}
+
+.box-header .btnn-header {
+	padding: 0 5px;
+	margin-bottom: 5px;
+	color: #737373;
+	background: #fff;
+}
+.stripeTable {
+	width: 100%;
+	border-collapse: collapse;
+	position: relative;
+	margin-bottom: 40px;
+}
+
+.stripeTable .k-widget {
+	border-bottom: none;
+}
+
+.stripeTable .k-widget,
+.stripeTable .k-grid-header {
+	border-color: #E3E3E3;
+}
+
+.stripeTable .k-grid-header-wrap {
+	border-style: none;
+}
+
+
+/*.stripeTable div.k-grid-header .k-header修改表格中th的高度，同时修改line-height值与height值相等，文字可上下居中*/
+
+.stripeTable div.k-grid-header .k-header {
+	font-weight: bold;
+	border-style: none;
+	text-align: center;
+	padding: 0;
+	height: 42px;
+	line-height: 42px;
+}
+
+.stripeTable .k-grid-header .k-header>.k-link {
+	color: #737373;
+}
+
+
+/*.stripeTable .k-grid-content修改表格中显示的表格的高度*/
+
+.stripeTable .k-grid-content {
+	overflow: auto;
+	overflow-x: auto;
+	overflow-y: scroll;
+	color: #737373;
+}
+
+
+/*.stripeTable.k-grid tr td修改表格中td的高度，同时修改line-height值与height值相等，文字可以上下居中*/
+
+.stripeTable.k-grid tr td {
+	border-width: 0 0 1px 0;
+	border-color: #E3E3E3;
+	text-align: center;
+	padding: 0;
+	height: 42px;
+	line-height: 42px;
+}
+
+
+/*修改页码与表格的距离*/
+
+.stripeTable .k-grid-pager {
+	border-width: 0;
+	margin-top: 10px;
+	float: right;
+	background: none;
+	color: #737373;
+	box-shadow: none;
+	position: absolute;
+	right: 0;
+	bottom: 0px;
+	padding-left: 20px;
+	padding-right: 20px;
+;
+}
+
+.stripeTable .k-grid-pager .k-link {
+	position: relative;
+}
+
+.stripeTable .k-pager-sizes .k-widget.k-dropdown {
+	margin-bottom: 2px;
+}
+
+.stripeTable .k-dropdown-wrap .k-input {
+	height: 2em;
+	line-height: 2em;
+	padding: 0;
+}
+
+/*.stripeTable .k-icon {
+	background: none;
+}*/
+
+.stripeTable .k-i-seek-w:after {
+	content: "\e069";
+	font-family: 'Glyphicons Halflings';
+	font-size: 12px;
+	position: absolute;
+	bottom: 14px;
+	left: 8px;
+	color: #737373;
+}
+
+.stripeTable .k-i-arrow-w:after {
+	content: "\e251";
+	font-family: 'Glyphicons Halflings';
+	font-size: 12px;
+	position: absolute;
+	bottom: 14px;
+	right: 9px;
+	color: #737373;
+}
+
+.stripeTable .k-i-arrow-e:after {
+	content: "\e250";
+	font-family: 'Glyphicons Halflings';
+	font-size: 12px;
+	position: absolute;
+	bottom: 14px;
+	right: 8px;
+	color: #737373;
+}
+
+.stripeTable .k-i-seek-e:after {
+	content: "\e077";
+	font-family: 'Glyphicons Halflings';
+	font-size: 12px;
+	position: absolute;
+	bottom: 14px;
+	right: 8px;
+	color: #737373;
+}
+
+.stripeTable .k-i-refresh:after {
+	content: "\e030";
+	font-family: 'Glyphicons Halflings';
+	font-size: 12px;
+	position: absolute;
+	bottom: 14px;
+	right: 8px;
+	color: #737373;
+}
+
+.stripeTable .k-i-arrow-s:after {
+	content: "\e114";
+	font-family: 'Glyphicons Halflings';
+	font-size: 12px;
+	position: absolute;
+	bottom: 14px;
+	right: 8px;
+	color: #737373;
+}
+
+.btnn {
+	display: inline-block;
+	padding: 0px 12px;
+	height: 35px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 35px;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px
+}
+
+.btnn:hover {
+	color: #333;
+	text-decoration: none
+}
+
+.btnn.active,
+.btnn:active {
+	background-image: none;
+	outline: 0;
+	-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+	box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125)
+}
+
+.btnn-default {
+	color: #333;
+	background-color: #fff;
+	border-color: #ccc
+}
+
+.btnn-default:hover {
+	color: #333;
+	background-color: #e6e6e6;
+	border-color: #adadad
+}
+
+.btnn-default.active,
+.btnn-default:active {
+	color: #333;
+	background-color: #e6e6e6;
+	border-color: #adadad
+}
+
+.btnn-primary {
+	color: #fff;
+	background-color: #337ab7;
+	border-color: #2e6da4
+}
+
+.btnn-primary:hover {
+	color: #fff;
+	background-color: #286090;
+	border-color: #204d74
+}
+
+.btnn-primary.active,
+.btnn-primary:active {
+	color: #fff;
+	background-color: #286090;
+	border-color: #204d74
+}
+
+.btnn-success {
+	color: #fff;
+	background-color: #5cb85c;
+	border-color: #4cae4c
+}
+
+.btnn-success:hover {
+	color: #fff;
+	background-color: #449d44;
+	border-color: #398439
+}
+
+.btnn-success.active,
+.btnn-success:active {
+	color: #fff;
+	background-color: #449d44;
+	border-color: #398439
+}
+
+.btnn-info {
+	color: #fff;
+	background-color: #5bc0de;
+	border-color: #46b8da
+}
+
+.btnn-info.focus,
+.btnn-info:focus {
+	color: #fff;
+	background-color: #31b0d5;
+	border-color: #1b6d85
+}
+
+.btnn-info:hover {
+	color: #fff;
+	background-color: #31b0d5;
+	border-color: #269abc
+}
+
+.btnn-info.active,
+.btnn-info:active {
+	color: #fff;
+	background-color: #31b0d5;
+	border-color: #269abc
+}
+
+.btnn-warning {
+	color: #fff;
+	background-color: #f0ad4e;
+	border-color: #eea236
+}
+
+.btnn-warning:hover {
+	color: #fff;
+	background-color: #ec971f;
+	border-color: #d58512
+}
+
+.btnn-warning.active,
+.btnn-warning:active {
+	color: #fff;
+	background-color: #ec971f;
+	border-color: #d58512
+}
+
+.btnn-danger {
+	color: #fff;
+	background-color: #d9534f;
+	border-color: #d43f3a
+}
+
+.btnn-danger:hover {
+	color: #fff;
+	background-color: #c9302c;
+	border-color: #ac2925
+}
+
+.btnn-danger.active,
+.btnn-danger:active {
+	color: #fff;
+	background-color: #c9302c;
+	border-color: #ac2925
+}
+
+
+/*蓝色按钮*/
+
+.btnn-confirm {
+	background-color: #4A8ACA;
+	color: #FFFFFF;
+}
+
+.btnn-confirm.active,
+.btnn-confirm:active {
+	color: #fff;
+	background-color: #3475B7;
+	border-color: #1b6d85
+}
+
+.btnn-confirm:hover {
+	color: #fff;
+	background-color: #3475B7;
+	border-color: #269abc
+}
+
+.btnn-link {
+	font-weight: 400;
+	color: #337ab7;
+	border-radius: 0
+}
+
+.btnn-link,
+.btnn-link.active,
+.btnn-link:active {
+	background-color: transparent;
+	-webkit-box-shadow: none;
+	box-shadow: none
+}
+
+.btnn-link,
+.btnn-link:active,
+.btnn-link:hover {
+	border-color: transparent
+}
+
+.btnn-link:hover {
+	color: #23527c;
+	text-decoration: none;
+	background-color: transparent
+}

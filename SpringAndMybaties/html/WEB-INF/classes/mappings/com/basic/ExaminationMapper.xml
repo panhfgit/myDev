@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.basic.dao.IExaminationDao">
+    <select id="getExamination" resultType="map" parameterType="java.util.Map">
+        select  *
+        from student_examination a
+        where 1=1
+        <if test="userId != null">
+            and a.student_id = #{userId}
+        </if>
+        <if test="stuExaminationId != null">
+            and a.stu_examination_id = #{stuExaminationId}
+        </if>
+    </select>
+
+    <select id="queryExamination" resultType="map" parameterType="java.util.Map">
+        select  *
+        from examination a
+        where 1=1
+        <if test="Examination_id != null and Examination_id != ''">
+            and a.examination_id = #{Examination_id}
+        </if>
+        <if test="examinationType != null">
+            and a.examination_type = #{examinationType}
+        </if>
+    </select>
+
+    <select id="queryExamSubjectRel" resultType="map" parameterType="java.util.Map">
+        select  *
+        from examination_subject_rel a
+        where 1=1
+        <if test="Examination_id != null and Examination_id != ''">
+            and a.examination_id = #{Examination_id}
+        </if>
+        <if test="subjectId != null and subjectId != ''">
+            and a.subject_id = #{subjectId}
+        </if>
+    </select>
+
+    <select id="querySubject" resultType="map" parameterType="java.util.Map">
+        select  *
+        from subject a
+        where 1=1
+        <if test="Subject_id != null and Subject_id != ''">
+            and a.subject_id = #{Subject_id}
+        </if>
+    </select>
+
+    <select id="queryChoice" resultType="map" parameterType="java.util.Map">
+        select  *
+        from choice a
+        where 1=1
+        <if test="choiceId != null">
+            and a.choice_id = #{choiceId}
+        </if>
+        <if test="Subject_id != null and Subject_id != ''">
+            and a.relate_subject_id = #{Subject_id}
+        </if>
+    </select>
+
+    <select id="getStuAnswerNewId" resultType="map">
+        show TABLE status where NAME like 'student_answer'
+    </select>
+
+    <insert id="saveStuAnswer" parameterType="com.basic.entity.StudentAnswerEntity">
+        INSERT into student_answer
+        (answer_id,
+        relate_subject_id,
+        stu_examination_id,
+        answer_detail,is_complete,
+        is_read)
+        VALUES (#{answerId},
+        #{relateSubjectId},
+        #{stuExaminationId},
+        #{answerDetail},
+        #{isComplete},
+        #{isRead})
+    </insert>
+</mapper>

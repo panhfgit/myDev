@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.basic.dao.IScienceDao">
+    <select id="getScience" resultType="map" parameterType="java.util.Map">
+        select  *
+        from science a
+        where a.state = 1
+        <if test="firstScience != null">
+            and ((a.science_id = #{firstScience} and a.science_type = 1)
+            or (a.parent_science_id = #{firstScience} and a.science_type = 2)
+            or (a.science_type = 3 and a.parent_science_id IN
+            (select b.science_id from science b where b.parent_science_id = #{firstScience} and b.science_type = 2)))
+        </if>
+        <if test="secondScience != null">
+            and ((a.science_id = #{secondScience} and a.science_type = 2)
+            or (a.parent_science_id = #{secondScience} and a.science_type = 3))
+        </if>
+        <if test="thirdScience != null">
+            and (a.science_id = #{thirdScience} and a.science_type = 3)
+        </if>
+          ORDER by a.science_type
+    </select>
+
+    <update id="deleteSciencebyId" parameterType="java.lang.Integer">
+        update science a
+         <set>
+             a.state = 0
+         </set>
+              where a.science_id = #{scienceId}
+    </update>
+
+    <select id="getScienceNewId" resultType="map">
+        show TABLE status where NAME like 'science'
+    </select>
+</mapper>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>自动组卷</title>
+
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/request.js"></script>
+
+</head>
+<body>
+<div class="box-inside">
+    <div class="box-header box-white">
+        <h4>生成试卷</h4>
+    </div>
+    <div class="box-content clearfix" id="classifyModel">
+        <!--<ul>
+            <li class="col-mdd-4">
+                <span class="col-mdd-4 span-lineHeight40 text-right">分类级别：</span>
+                <span class="col-mdd-8">
+                    <select id="classifyType" class="mySelect" />
+                </span>
+            </li>
+            <li class="col-mdd-4">
+                <span class="col-mdd-4 span-lineHeight40 text-right">类别：</span>
+                <span class="col-mdd-8">
+                    <select id="classifyDetail" class="mySelect" />
+                </span>
+            </li>
+            <li class="col-mdd-4">
+                <span class="col-mdd-4 span-lineHeight40 text-right">题目数量：</span>
+                <span class="col-mdd-8">
+                    <input type="text" id="subjectNum" class="mySelect" />
+                </span>
+            </li>
+            <div class="clearfix"></div>
+
+        </ul>-->
+    </div>
+    <div class="box-content clearfix">
+        <ul>
+        <li class="col-mdd-12">
+                <span class="col-mdd-11 text-center">
+                    <button type="button" class="btn btn-link" id="addList">&nbsp;&nbsp;添加&nbsp;&nbsp;</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-link" id="deleteList">&nbsp;&nbsp;删除&nbsp;&nbsp;</button>
+                    <br>
+                    <br>
+                    <button class="btnn btnn-confirm" id="autoGenerateButton">&nbsp;&nbsp;生成试卷&nbsp;&nbsp;</button>
+                </span>
+            <span class="col-mdd-1 text-center"></span>
+        </li>
+        </ul>
+    </div>
+</div>
+
+<script src="autoGenerateExam.js"></script>
+</body>
+</html>

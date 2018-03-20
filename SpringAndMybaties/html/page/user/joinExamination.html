@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>参加考试</title>
+
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/request.js"></script>
+
+</head>
+<body>
+<div class="box-inside" id="joinTest">
+    <div class="box-header box-white">
+        <h4>参加考试</h4>
+    </div>
+    <div class="box-content clearfix">
+        <ul>
+
+            <div class="clearfix"></div>
+            <li class="col-mdd-12">
+                <span class="col-mdd-11 text-center">
+                    <button class="btnn btnn-confirm"  id="queryButton">&nbsp;&nbsp;查询&nbsp;&nbsp;</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btnn btnn-confirm" id="joinTestButton">&nbsp;&nbsp;参加考试&nbsp;&nbsp;</button>
+                </span>
+                <span class="col-mdd-1 text-center"></span>
+            </li>
+        </ul>
+    </div>
+    <div class="box-inside">
+        <div class="box-header box-white">
+            <h4>考试列表</h4>
+        </div>
+        <div class="box-content">
+            <table class="table table-bordered" id="examinationTable" data-url="/examination/getExamination.do">
+                <thead>
+                <tr>
+                    <th data-type="CheckBox"></th>
+                    <th data-field="Stu_examination_id">编号</th>
+                    <th data-field="Examination_title">试卷主题</th>
+                    <th data-field="Ext1">完成状态</th>
+                    <th data-field="Is_complete">完成状态</th>
+                    <th data-field="Ext2">说明</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="joinExamination.js"></script>
+</body>
+</html>
