@@ -26,8 +26,13 @@ var managerMenuModel = managerMenuModel || {};
     var autoGenerateExam = function(){
         $("#contatainHtml").load("/page/user/autoGenerateExam.html");
     }
+
+    var manageSubject = function(){
+        $("#contatainHtml").load("/page/user/subjectManager.html");
+    }
     init();
 
     managerMenuModel.manageScience = manageScience;
     managerMenuModel.autoGenerateExam = autoGenerateExam;
+    managerMenuModel.manageSubject = manageSubject;
 })(jQuery);

@@ -32,7 +32,13 @@ public interface IExaminationSV {
 
     public Map saveAnswer(Map paraMap)throws Exception;
 
-    public Integer getStuAnswerNewId()throws Exception;
+    public Integer getNewId(String tableName)throws Exception;
 
     public Map autoGenerateExam(List paraList)throws Exception;
+
+    public Map saveAutoExamination(Map paraMap)throws Exception;
+
+    public List querySubject4Design(Map paraMap)throws Exception;
+
+    public Map querySubject4Update(Map paraMap)throws Exception;
 }

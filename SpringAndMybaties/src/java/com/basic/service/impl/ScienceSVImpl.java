@@ -30,8 +30,6 @@ public class ScienceSVImpl implements IScienceSV{
     @Override
     public List getScience(Map paramMap) throws Exception {
 
-        List<ScienceEntity> scienceEntities = scienceDao.getScience(paramMap);
-
         return scienceDao.getScience(paramMap);
     }
 

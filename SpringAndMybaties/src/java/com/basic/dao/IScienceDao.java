@@ -23,7 +23,7 @@ import java.util.Map;
 @Repository
 @Dao(ScienceEntity.class)
 public interface IScienceDao {
-    public List<ScienceEntity> getScience(Map paraMap) throws Exception;
+    public List getScience(Map paraMap) throws Exception;
 
     public void deleteSciencebyId(Integer scienceId)throws Exception;
 

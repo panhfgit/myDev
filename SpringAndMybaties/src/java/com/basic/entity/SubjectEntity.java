@@ -28,6 +28,7 @@ public class SubjectEntity extends BaseEntity {
     private Date createDate;
     private Integer creater;
     private Integer state;
+    private String subjectAnswer;
     private String ext1;
     private String ext2;
 
@@ -93,6 +94,14 @@ public class SubjectEntity extends BaseEntity {
 
     public void setState(Integer state) {
         this.state = state;
+    }
+
+    public String getSubjectAnswer() {
+        return subjectAnswer;
+    }
+
+    public void setSubjectAnswer(String subjectAnswer) {
+        this.subjectAnswer = subjectAnswer;
     }
 
     public String getExt1() {

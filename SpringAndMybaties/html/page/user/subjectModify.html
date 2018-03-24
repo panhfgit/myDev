@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>题目修改</title>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/style.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/request.js"></script>
+
+</head>
+<body>
+<div class="box-inside">
+    <div class="box-header box-white">
+        <h4>题目管理</h4>
+    </div>
+    <div class="box-content clearfix">
+        <ul>
+            <li class="col-mdd-12">
+                <span class="col-mdd-4 span-lineHeight40 text-right">题目类型：</span>
+                <span class="col-mdd-8">
+                    <select id="subjectType" class="mySelect"></select>
+                </span>
+            </li>
+        </ul>
+        <ul>
+            <li class="col-mdd-12">
+                <span class="col-mdd-4 span-lineHeight40 text-right">所属学科类别：</span>
+                <span class="col-mdd-8">
+                    <select id="scienceType" class="mySelect"></select>
+                </span>
+            </li>
+        </ul>
+        <ul>
+            <li class="col-mdd-12">
+                <span class="col-mdd-4 span-lineHeight40 text-right">所属学科：</span>
+                <span class="col-mdd-8">
+                    <select id="scienceDetail" class="mySelect"></select>
+                </span>
+            </li>
+        </ul>
+        <ul>
+            <li class="col-mdd-12">
+                <span class="col-mdd-4 span-lineHeight40 text-right">题目内容：</span>
+                <span class="col-mdd-8">
+                    <textarea id="subjectDetail" cols="32"></textarea>
+                </span>
+            </li>
+        </ul>
+        <div id="choiceDiv">
+
+        </div>
+        <ul>
+            <li class="col-mdd-12">
+                <span class="col-mdd-12 span-lineHeight40 text-right red" id="commitNote">请选中正确答案</span>
+            </li>
+        </ul>
+        <div class='box-content clearfix'>
+            <ul>
+                <li class='col-mdd-12'>
+                    <span class='col-mdd-11 text-center'>
+                    <button type='button' class='btn btn-link' id='addModel'>&nbsp;&nbsp;添加选项&nbsp;&nbsp;</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type='button' class='btn btn-link' id='delModel'>&nbsp;&nbsp;删除选项&nbsp;&nbsp;</button>
+                    </span>
+                    <span class='col-mdd-1 text-center'></span>
+                    </li>
+                </ul>
+            </div>
+        <div class="clearfix"></div>
+        <ul>
+            <li class="col-mdd-12">
+                <span class="col-mdd-11 text-center">
+                    <button class="btnn btnn-confirm"  id="confirmButton">&nbsp;&nbsp;确认&nbsp;&nbsp;</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btnn btnn-confirm" id="cancelButton">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                </span>
+                <span class="col-mdd-1 text-center"></span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script src="subjectModify.js"></script>
+</body>
+</html>

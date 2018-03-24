@@ -116,18 +116,114 @@ public class ExaminationControl {
         try{
             Map getParam = request.getParameterMap();
             String[] paramString = (String[])getParam.get("classifyInfo[]");
+            String examTitle = request.getParameter("examTitle");
+            String examType = request.getParameter("examType");
+            Integer createrId = (Integer)(request.getSession().getAttribute("userId"));
+            if(null == examTitle || "".equals(examTitle)
+                    || null == examType || "".equals(examType)){
+                response.setCode(Response.ERROR);
+                response.setMessage("缺少试卷设置信息");
+                return response.toString();
+            }
             if(null != paramString && paramString.length>0){
                 List paraList = new ArrayList();
                 for(int i=0 ; i<paramString.length ; i++){
                     paraList.add(i,paramString[i]);
                 }
-                Map result = examinationSV.autoGenerateExam(paraList);
+                Map examInfo = examinationSV.autoGenerateExam(paraList);
+                examInfo.put("examTitle",examTitle);
+                examInfo.put("createrId",createrId);
+                examInfo.put("examType",examType);
+                Map result = examinationSV.saveAutoExamination(examInfo);
                 response.setCode(Response.SUCCESS);
                 response.setData(result);
                 response.setMessage("自动生成成功！");
             }else{
                 response.setCode(Response.ERROR);
                 response.setMessage("缺少具体的分类信息");
+            }
+        }catch (Exception e){
+            response.setCode(Response.ERROR);
+            response.setMessage(e.getMessage());
+        }finally {
+            return response.toString();
+        }
+    }
+
+    @RequestMapping("/queryExamination")
+    @ResponseBody
+    public String queryExamination(HttpServletRequest request){
+        Response response = new Response();
+        try{
+            String examinationId = request.getParameter("examinationId");
+            String examinationType = request.getParameter("examinationType");
+            String createDate = request.getParameter("createDate");
+            Map queryMap = new HashMap();
+            if(null != examinationId && !"".equals(examinationId)){
+                queryMap.put("Examination_id",examinationId);
+            }
+            if(null != examinationType && !"".equals(examinationType)){
+                queryMap.put("examinationType",examinationType);
+            }
+            if(null != createDate && !"".equals(createDate)){
+                queryMap.put("createDate",createDate);
+            }
+            List result = examinationSV.queryExamination(queryMap);
+            response.setCode(Response.SUCCESS);
+            response.setData(result);
+            response.setMessage("查询成功！");
+        }catch (Exception e){
+            response.setCode(Response.ERROR);
+            response.setMessage(e.getMessage());
+        }finally {
+            return response.toString();
+        }
+    }
+
+    @RequestMapping("/querySubject4Design")
+    @ResponseBody
+    public String querySubject4Design(HttpServletRequest request){
+        Response response = new Response();
+        try{
+            String examinationId = request.getParameter("examinationId");
+            Map queryMap = new HashMap();
+            if(null != examinationId && !"".equals(examinationId)){
+                queryMap.put("Examination_id",examinationId);
+                List result = examinationSV.querySubject4Design(queryMap);
+                response.setCode(Response.SUCCESS);
+                response.setData(result);
+                response.setMessage("查询成功！");
+            }else{
+                response.setCode(Response.ERROR);
+                response.setMessage("缺少试卷编号");
+            }
+        }catch (Exception e){
+            response.setCode(Response.ERROR);
+            response.setMessage(e.getMessage());
+        }finally {
+            return response.toString();
+        }
+    }
+
+    @RequestMapping("/querySubject4Update")
+    @ResponseBody
+    public String querySubject4Update(HttpServletRequest request){
+        Response response = new Response();
+        try{
+            String examinationId = request.getParameter("examinationId");
+            String subjectId = request.getParameter("subjectId");
+            Map queryMap = new HashMap();
+            if(null != examinationId && !"".equals(examinationId) &&
+            null != subjectId && !"".equals(subjectId)){
+                queryMap.put("Examination_id",examinationId);
+                queryMap.put("subjectId",subjectId);
+                Map result = examinationSV.querySubject4Update(queryMap);
+                response.setCode(Response.SUCCESS);
+                response.setData(result);
+                response.setMessage("查询成功！");
+            }else{
+                response.setCode(Response.ERROR);
+                response.setMessage("缺少参数");
             }
         }catch (Exception e){
             response.setCode(Response.ERROR);

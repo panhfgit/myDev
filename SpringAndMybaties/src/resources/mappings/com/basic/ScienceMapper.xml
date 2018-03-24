@@ -18,6 +18,9 @@
         <if test="thirdScience != null">
             and (a.science_id = #{thirdScience} and a.science_type = 3)
         </if>
+        <if test="Science_id != null and Science_id != ''">
+            and (a.science_id = #{Science_id} and a.science_type = 3)
+        </if>
           ORDER by a.science_type
     </select>
 

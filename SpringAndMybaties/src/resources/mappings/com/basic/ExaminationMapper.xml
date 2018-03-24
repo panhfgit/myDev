@@ -4,7 +4,7 @@
     <select id="getExamination" resultType="map" parameterType="java.util.Map">
         select  *
         from student_examination a
-        where 1=1
+        where a.state=1
         <if test="userId != null">
             and a.student_id = #{userId}
         </if>
@@ -16,19 +16,23 @@
     <select id="queryExamination" resultType="map" parameterType="java.util.Map">
         select  *
         from examination a
-        where 1=1
+        where a.state=1
         <if test="Examination_id != null and Examination_id != ''">
             and a.examination_id = #{Examination_id}
         </if>
-        <if test="examinationType != null">
+        <if test="examinationType != null and examinationType != ''">
             and a.examination_type = #{examinationType}
         </if>
+        <if test="createDate != null and createDate != ''">
+            and a.create_date = #{createDate}
+        </if>
+        ORDER by a.create_date DESC
     </select>
 
     <select id="queryExamSubjectRel" resultType="map" parameterType="java.util.Map">
         select  *
         from examination_subject_rel a
-        where 1=1
+        where a.state=1
         <if test="Examination_id != null and Examination_id != ''">
             and a.examination_id = #{Examination_id}
         </if>
@@ -40,16 +44,25 @@
     <select id="querySubject" resultType="map" parameterType="java.util.Map">
         select  *
         from subject a
-        where 1=1
+        where a.state=1
         <if test="Subject_id != null and Subject_id != ''">
             and a.subject_id = #{Subject_id}
+        </if>
+        <if test="scienceId != null and scienceId != ''">
+            and a.science_id in (
+              select b.science_id from science b where b.parent_science_id = #{scienceId}
+                  or b.science_id = #{scienceId}
+                  or (b.parent_science_id in
+                      (select c.science_id from science c where c.parent_science_id = #{scienceId})
+                      )
+            )
         </if>
     </select>
 
     <select id="queryChoice" resultType="map" parameterType="java.util.Map">
         select  *
         from choice a
-        where 1=1
+        where a.state=1
         <if test="choiceId != null">
             and a.choice_id = #{choiceId}
         </if>
@@ -58,8 +71,8 @@
         </if>
     </select>
 
-    <select id="getStuAnswerNewId" resultType="map">
-        show TABLE status where NAME like 'student_answer'
+    <select id="getNewId" resultType="map" parameterType="java.lang.String">
+        show TABLE status where NAME like #{tableName}
     </select>
 
     <insert id="saveStuAnswer" parameterType="com.basic.entity.StudentAnswerEntity">
@@ -75,5 +88,46 @@
         #{answerDetail},
         #{isComplete},
         #{isRead})
+    </insert>
+
+    <select id="saveExamination" parameterType="com.basic.entity.ExaminationEntity">
+        insert into examination
+        (examination_id,
+        examination_title,
+        examination_type,
+        creater,
+        create_date,
+        state)
+        values (#{examinationId},
+        #{examinationTitle},
+        #{examinationType},
+        #{creater},
+        #{createDate},
+        #{state}
+        )
+    </select>
+
+    <insert id="saveExaminationSubjectRel" parameterType="com.basic.entity.ExaminationSubjectRelEntity">
+        insert into examination_subject_rel
+        (relate_id,
+        examination_id,
+        subject_id,
+        subject_score,
+        sort_id,
+        subject_type,
+        subject_answer,
+        state,
+        ext1,
+        ext2)
+        VALUES (#{relateId},
+        #{examinationId},
+        #{subjectId},
+        #{subjectScore},
+        #{sortId},
+        #{subjectType},
+        #{subjectAnswer},
+        #{state},
+        #{ext1},
+        #{ext2})
     </insert>
 </mapper>

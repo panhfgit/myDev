@@ -33,7 +33,9 @@ public interface IExaminationDao {
 
     public List<Map> queryExamSubjectRel(Map paraMap)throws Exception;
 
-    public Map getStuAnswerNewId()throws Exception;
+    public Map getNewId(String tableName)throws Exception;
 
     public void saveStuAnswer(StudentAnswerEntity studentAnswerEntity)throws Exception;
+    public void saveExamination(ExaminationEntity examinationEntity)throws Exception;
+    public void saveExaminationSubjectRel(ExaminationSubjectRelEntity examinationSubjectRelEntity)throws Exception;
 }

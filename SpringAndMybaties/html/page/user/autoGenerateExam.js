@@ -9,25 +9,36 @@
     var classifyNum = 0;
 
     var getParam = function(){
-        var retData = [];
+        var retData = {};
+        var classifyInfo = [];
+        var examTitle = $("#examTitle").val();
+        var examType = $("#examinationType").val();
+        if(examTitle == "" || examTitle == ""){
+            alert("请按要求填写相关信息");
+            return;
+        }
         for(var i=0 ; i<classifyNum ; i++){
             var scienceId = $("#classifyDetail_"+(i+1)).val();
             var singleChoiceNum = $("#singleChoiceNum_" + (i+1)).val();
             var multipleChoiceNum = $("#multipleChoiceNum_" + (i+1)).val();
             var subjectiveNum = $("#subjectiveNum_" + (i+1)).val();
-            if(scienceId != "" && singleChoiceNum != "" && /^[1-9]\d*$/.test(singleChoiceNum)
-                && multipleChoiceNum != "" && /^[1-9]\d*$/.test(multipleChoiceNum)
-                && subjectiveNum != "" && /^[1-9]\d*$/.test(subjectiveNum)){
-                retData[i] = scienceId + "_" + singleChoiceNum + "_" + multipleChoiceNum + "_" +subjectiveNum;
+            if(scienceId != "" && singleChoiceNum != "" && /^[0-9]\d*$/.test(singleChoiceNum)
+                && multipleChoiceNum != "" && /^[0-9]\d*$/.test(multipleChoiceNum)
+                && subjectiveNum != "" && /^[0-9]\d*$/.test(subjectiveNum)){
+                classifyInfo[i] = scienceId + "_" + singleChoiceNum + "_" + multipleChoiceNum + "_" +subjectiveNum;
             }else{
                 alert("请按要求填写相关信息");
                 return;
             }
         }
+        retData.examTitle = examTitle;
+        retData.examType = examType;
+        retData.classifyInfo = classifyInfo;
         return retData;
     }
 
     var addModel = function(){
+
         var addModel = $("#classifyModel");
 
         addModel.append("<ul id='classifyUl_" + (++classifyNum) + "'> " +
@@ -82,11 +93,16 @@
     };
 
     var delModel = function(){
-        $("#classifyUl_"+classifyNum).remove();
-        classifyNum--;
+        if(classifyNum>1){
+            $("#classifyUl_"+classifyNum).remove();
+            classifyNum--;
+        }else{
+            alert("分类信息不能少于1条！");
+        }
     }
     
     var init = function(){
+        BuildSelectBox("examinationType","examinationType");
         addModel();
     };
 

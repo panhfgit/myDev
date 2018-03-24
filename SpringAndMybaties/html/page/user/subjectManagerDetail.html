@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>题目管理</title>
+
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/request.js"></script>
+
+</head>
+<body>
+<div class="box-inside" id="innerHtml">
+    <div class="box-header box-white">
+        <h4>题目管理</h4>
+    </div>
+    <div class="box-content clearfix">
+        <ul>
+            <li class="col-mdd-4">
+                <span class="col-mdd-4 span-lineHeight40 text-right">试卷标题：</span>
+                <span class="col-mdd-8">
+                    <input type="text" id="examinationTitle" class="mySelect" />
+                </span>
+            </li>
+            <li class="col-mdd-4">
+                <span class="col-mdd-4 span-lineHeight40 text-right">试卷类型：</span>
+                <span class="col-mdd-8">
+                    <select id="examinationType" class="mySelect" />
+                </span>
+            </li>
+            <div class="clearfix"></div>
+        </ul>
+    </div>
+    <div class="box-inside">
+        <div class="box-header box-white">
+            <h4>试卷列表</h4>
+        </div>
+        <div class="box-content">
+            <table class="table table-bordered" id="SubjectTable" data-url="/examination/querySubject4Design.do">
+                <thead>
+                <tr>
+                    <th data-type="CheckBox"></th>
+                    <th data-field="Subject_id">编号</th>
+                    <th data-field="subjectType">题型</th>
+                    <th data-field="Subject_detail">名称</th>
+                    <th data-field="scienceName">所属学科</th>
+                    <th data-field="subjectAnswer">答案</th>
+                    <th data-type="button"></th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <ul>
+        <li class="col-mdd-12">
+            <span class="col-mdd-11 text-center">
+                <button class="btnn btnn-confirm"  id="addSubject">&nbsp;&nbsp;添加题目&nbsp;&nbsp;</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btnn btnn-confirm"  id="confirmButton">&nbsp;&nbsp;确定&nbsp;&nbsp;</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btnn btnn-confirm" id="cancelButton">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+            </span>
+            <span class="col-mdd-1 text-center"></span>
+        </li>
+    </ul>
+</div>
+
+<script src="subjectManagerDetail.js"></script>
+</body>
+</html>

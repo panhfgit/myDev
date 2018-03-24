@@ -51,6 +51,7 @@ function loadTable(tableId, paraData, selectId){
     var table = $("#"+tableId);
     var url = table.data("url");
     var ischeckbox = false;
+    var isButton = false;
     //获取数据项名称
     var fileds = new Array();
     table.children('thead').children('tr').children('th').each(function (index, el) {
@@ -62,7 +63,10 @@ function loadTable(tableId, paraData, selectId){
         }
         else if (type == 'CheckBox') {
             ischeckbox = true;
+        }else if (type == 'button') {
+            isButton = true;
         }
+
     });
     $.ajax({
         url:url,
@@ -93,6 +97,9 @@ function loadTable(tableId, paraData, selectId){
                                 }
                             }
                         });
+                        if (isButton){//生成按钮
+                            tr += '<td><button id="modify_' + result[index][fileds[1]] + '">修改</button></td>';
+                        }
                         tr += "</tr>";
                         tbody += tr;
                     });
@@ -314,16 +321,14 @@ function autoGenerateExam(param){
             async:false,
             type:"POST",
             dataType:"text",
-            data:{
-                classifyInfo: param
-            },
+            data:param,
             success:function(data){
                 //console.info(data);
                 data = JSON.parse(data);
                 if(data.errorInfo.code=="0000"){
                     var result = data.data;
                     if(result){
-                        alert("生成成功");
+                        alert("生成成功,试卷编号：" + result.examinationId);
                     }
                 }else{
                     alert("生成出错,"+data.errorInfo.message);
